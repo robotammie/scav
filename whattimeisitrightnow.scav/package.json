@@ -7,7 +7,7 @@
   "scripts": {
     "predeploy": "yarn build",
     "deploy": "echo 'whattimeisitrightnow.scavhunt.net' > ./build/CNAME && gh-pages -d build",
-    "build": "preact build",
+    "build": "preact build --no-prerender --no-sw --no-esm",
     "serve": "sirv build --port 8080 --cors --single",
     "dev": "preact watch",
     "lint": "eslint src",
