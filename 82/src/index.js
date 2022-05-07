@@ -13,23 +13,36 @@ var wantKeyCodes = {
 	122: {id: '9SA7FaKxZVI', title: 'Fast & Furious Presents: Hobbs & Shaw'},
 };
 
+var showing = false;
+
 function onKeyDown(e) {
 	var keyCode = e.keyCode || e.which;
-	if (!(keyCode in wantKeyCodes)) {
+	if (!(keyCode in wantKeyCodes) && keyCode != 32) {
 		return
 	}
 
 	e.preventDefault();
-	var movie = wantKeyCodes[keyCode];
+
 	var titleEl = document.getElementById('movie-title');
 	var trailerEl = document.getElementById('movie-trailer');
+	if (keyCode == 32) {
+		trailerEl.classList.toggle('animate-spin-slow');
+		return;
+	}
 
+	var movie = wantKeyCodes[keyCode];
 	var url = `https://www.youtube.com/embed/${movie.id}?&autoplay=1`;
 	titleEl.innerText = movie.title;
 	trailerEl.innerHTML =
 		`<iframe width="800" height="600" src="${url}" `
 		+ `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"`
 		+ `allowFullScreen frameBorder="0" />`;
+
+	if (!showing) {
+		showing = true;
+		var msgEl = document.getElementById('party-message');
+		msgEl.classList.remove('hidden');
+	}
 }
 
 window.onload = function main() {
