@@ -26,7 +26,7 @@ function onKeyDown(e) {
 	var titleEl = document.getElementById('movie-title');
 	var trailerEl = document.getElementById('movie-trailer');
 	if (keyCode == 32) {
-		trailerEl.classList.toggle('animate-spin-slow');
+		trailerEl.classList.toggle('animate-spin');
 		return;
 	}
 
