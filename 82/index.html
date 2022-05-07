@@ -9,10 +9,15 @@
   <body>
     <div class="container mx-auto px-4">
       <div class="text-center font-thin">
-        Press any key between F1 to F11.
+        Press any key between
+        <span class="font-bold">F1</span> and
+        <span class="font-bold">F10</span>.
+      </div>
+      <div class="hidden font-bold" id="party-message">
+        Press Space to toggle Furious mode.
       </div>
       <h1 class="text-3xl drop-shadow-md animate-pulse text-center font-bold" id="movie-title"></h1>
-      <div class="animate-spin-slow" id="movie-trailer"></div>
+      <div id="movie-trailer"></div>
     </div>
   </body>
   <script src="index.js" charset="utf-8"></script>
